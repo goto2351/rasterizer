@@ -21,5 +21,10 @@ namespace rasterizer
             this.y = y;
             this.z = z;
         }
+
+        public override string ToString()
+        {
+            return $"x: {x} y: {y}, z: {z}";
+        }
     }
 }
