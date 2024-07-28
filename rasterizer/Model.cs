@@ -25,7 +25,8 @@ namespace rasterizer
 
     internal class NullModel : IModel
     {
-        public List<Point3D> VertexList { get
+        public List<Point3D> VertexList { 
+            get
             {
                 if (_vertexList == null)
                 {

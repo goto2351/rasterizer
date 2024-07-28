@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace rasterizer
 {
-    internal class IModel
+    internal interface IModel
     {
+        public List<Point3D> VertexList { get; }
     }
 }
