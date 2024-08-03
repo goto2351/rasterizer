@@ -14,10 +14,10 @@ namespace rasterizer
         /// <summary>
         /// 頂点
         /// </summary>
-        public List<Point3D> VertexList => _vertexList;
-        private List<Point3D> _vertexList;
+        public List<Vector3> VertexList => _vertexList;
+        private List<Vector3> _vertexList;
 
-        public Model(List<Point3D> vertexList)
+        public Model(List<Vector3> vertexList)
         {
             _vertexList = vertexList;
         }
@@ -25,16 +25,16 @@ namespace rasterizer
 
     internal class NullModel : IModel
     {
-        public List<Point3D> VertexList { 
+        public List<Vector3> VertexList { 
             get
             {
                 if (_vertexList == null)
                 {
-                    _vertexList = new List<Point3D>();
+                    _vertexList = new List<Vector3>();
                 }
                 return _vertexList;
             }
         }
-        private List<Point3D> _vertexList = null;
+        private List<Vector3> _vertexList = null;
     }
 }

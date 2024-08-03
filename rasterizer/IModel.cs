@@ -8,6 +8,6 @@ namespace rasterizer
 {
     internal interface IModel
     {
-        public List<Point3D> VertexList { get; }
+        public List<Vector3> VertexList { get; }
     }
 }

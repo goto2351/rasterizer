@@ -9,13 +9,13 @@ namespace rasterizer
     /// <summary>
     /// 3Dモデルの頂点
     /// </summary>
-    internal class Point3D
+    internal class Vector3
     {
         public float x { get; }
         public float y { get; }
         public float z { get; }
 
-        public Point3D(float x, float y, float z)
+        public Vector3(float x, float y, float z)
         {
             this.x = x;
             this.y = y;
