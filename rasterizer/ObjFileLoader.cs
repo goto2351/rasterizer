@@ -68,13 +68,13 @@ namespace rasterizer
         /// </summary>
         /// <param name="vertexList"></param>
         /// <returns></returns>
-        private static List<Point3D> CreatePointList(IList<Vertex> vertexList)
+        private static List<Vector3> CreatePointList(IList<Vertex> vertexList)
         {
-            var pointList = new List<Point3D>();
+            var pointList = new List<Vector3>();
 
             foreach (var vertex in vertexList)
             {
-                var point = new Point3D(vertex.X, vertex.Y, vertex.Z);
+                var point = new Vector3(vertex.X, vertex.Y, vertex.Z);
                 pointList.Add(point);
             }
 
