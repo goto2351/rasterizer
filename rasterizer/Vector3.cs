@@ -9,7 +9,7 @@ namespace rasterizer
     /// <summary>
     ///　3次元ベクトル
     /// </summary>
-    internal class Vector3
+    public class Vector3
     {
         public float x { get; }
         public float y { get; }
@@ -57,7 +57,7 @@ namespace rasterizer
             Vector3 vec = obj as Vector3;
             if (vec == null) return false;
 
-            return this.x == vec.x && this.y == vec.y && this.z == vec.z;
+            return Math.FloatEqual(this.x, vec.x) && Math.FloatEqual(this.y, vec.y) && Math.FloatEqual(this.z, vec.z);
         }
     }
 }

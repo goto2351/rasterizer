@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace rasterizer
 {
-    internal class Math
+    public static class Math
     {
         /// <summary>
         /// ベクトルの内積
@@ -32,6 +32,12 @@ namespace rasterizer
             var z = vec1.x * vec2.y - vec2.x * vec1.y;
 
             return new Vector3(x, y, z);
+        }
+
+        public static bool FloatEqual(float a, float b)
+        {
+            const float DELTA = 0.001f;
+            return MathF.Abs(a - b) <= DELTA;
         }
     }
 }
