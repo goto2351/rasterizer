@@ -9,7 +9,7 @@ namespace rasterizer
     /// <summary>
     /// 座標と対応する色を表すクラス
     /// </summary>
-    internal class Pixel
+    public class Pixel
     {
         // 座標
         public int x { get; }

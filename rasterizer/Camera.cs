@@ -70,7 +70,7 @@ namespace rasterizer
         /// <param name="setupParam"></param>
         private void SetupBasis(SetupParam setupParam)
         {
-            BasisZ = (setupParam.LookAt - setupParam.Position).Normalize();
+            BasisZ = (setupParam.Position - setupParam.LookAt).Normalize();
             BasisX = Math.Cross(setupParam.UpVector, BasisZ).Normalize();
             BasisY = Math.Cross(BasisZ, BasisX).Normalize();
 
