@@ -13,17 +13,17 @@ namespace rasterizer
     {
         public class SetupParam
         {
-            public Vector3 Position { get; } = new Vector3 (0, 0, 0);
-            public Vector3 LookAt { get; } = new Vector3(0, 0, 0);
-            public Vector3 UpVector { get; } = new Vector3(0, 0, 0);
+            public Vector3 Position { get; set; } = new Vector3 (0, 0, 0);
+            public Vector3 LookAt { get; set; } = new Vector3(0, 0, 0);
+            public Vector3 UpVector { get; set; } = new Vector3(0, 0, 0);
 
             // クリッピング
-            public float Near { get; } = 2f;
-            public float Far { get; } = 10f;
+            public float Near { get; set; } = 2f;
+            public float Far { get; set; } = 10f;
 
             // カメラサイズ
-            public float Width { get; } = 1f;
-            public float Height { get; } = 1f;
+            public float Width { get; set; } = 1f;
+            public float Height { get; set; } = 1f;
         }
 
         /// <summary>
@@ -73,6 +73,11 @@ namespace rasterizer
             BasisZ = (setupParam.LookAt - setupParam.Position).Normalize();
             BasisX = Math.Cross(setupParam.UpVector, BasisZ).Normalize();
             BasisY = Math.Cross(BasisZ, BasisX).Normalize();
+
+            Console.WriteLine("カメラ座標系の基底を計算");
+            Console.WriteLine($"x → {BasisX}");
+            Console.WriteLine($"y → {BasisY}");
+            Console.WriteLine($"z → {BasisZ}");
         }
     }
 }
