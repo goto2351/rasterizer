@@ -9,10 +9,14 @@
         {
             Application.EnableVisualStyles();
 
-            if (args[0] != null)
-            {
-                LoadModel(args[0]);
-            }
+            if (args[0] == null) return;
+
+            var model = LoadModel(args[0]);
+            var camera = CreateCamera();
+
+            // 頂点処理
+            var vertexTransformer = new VertexTransformer(camera, model.VertexList);
+            vertexTransformer.Transform();
 
             // ウィンドウを作成してピクセルを描画する
             var outputWindow = new WindowOutput(800, 600);
@@ -20,7 +24,7 @@
             outputWindow.OutputImage();
         }
 
-        private static void LoadModel(string filePath)
+        private static IModel LoadModel(string filePath)
         {
             Console.WriteLine($"objファイル読み込み: {filePath}");
             var model = ObjFileLoader.Load(filePath);
@@ -33,6 +37,24 @@
                     Console.WriteLine(vertex.ToString());
                 }
             }
+
+            return model;
+        }
+
+        /// <summary>
+        /// カメラを生成
+        /// </summary>
+        /// <returns></returns>
+        private static Camera CreateCamera()
+        {
+            var setupParam = new Camera.SetupParam()
+            {
+                Position = new Vector3(0f, 6f, 28f),
+                LookAt = new Vector3(-0.2f, 1.6f, 0f),
+                UpVector = new Vector3(0f, 1f, 0f),
+            };
+            
+            return new Camera(setupParam);
         }
 
         private static void TestDraw(IImageOutput output)
