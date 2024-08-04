@@ -5,6 +5,9 @@
     /// </summary>
     internal class Program
     {
+        public const float SCREEN_WIDTH = 800f;
+        public const float SCREEN_HEIGHT = 600f;
+
         static void Main(string[] args)
         {
             Application.EnableVisualStyles();
@@ -16,11 +19,12 @@
 
             // 頂点処理
             var vertexTransformer = new VertexTransformer(camera, model.VertexList);
-            vertexTransformer.Transform();
+            var pixelList = vertexTransformer.Transform();
 
             // ウィンドウを作成してピクセルを描画する
             var outputWindow = new WindowOutput(800, 600);
-            TestDraw(outputWindow);
+            //TestDraw(outputWindow);
+            outputWindow.SetPixelList(pixelList);
             outputWindow.OutputImage();
         }
 
@@ -49,8 +53,8 @@
         {
             var setupParam = new Camera.SetupParam()
             {
-                Position = new Vector3(0f, 6f, 28f),
-                LookAt = new Vector3(-0.2f, 1.6f, 0f),
+                Position = new Vector3(0f, 8f, 10f),
+                LookAt = new Vector3(0.2f, 3f, 0f),
                 UpVector = new Vector3(0f, 1f, 0f),
             };
             

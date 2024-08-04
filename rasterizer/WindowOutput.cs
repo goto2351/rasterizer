@@ -52,6 +52,14 @@ namespace rasterizer
             canvas.SetPixel(pixel.x, pixel.y, pixel.Color);
         }
 
+        public void SetPixelList(List<Pixel> pixelList)
+        {
+            foreach (var pixel in pixelList)
+            {
+                SetPixel(pixel);
+            }
+        }
+
         public void OutputImage()
         {
             // ピクセルを描画する
