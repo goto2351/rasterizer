@@ -43,13 +43,21 @@ namespace rasterizer
 
         public void SetPixel(Pixel pixel)
         {
-            Console.WriteLine($"pixelを描画: {pixel.x}, {pixel.y}");
+            //Console.WriteLine($"pixelを描画: {pixel.x}, {pixel.y}");
             if (pixel == null) return;
             // 指定された座標がcanvasの中なら描画する
             if (pixel.x < 0 || pixel.x >= this.Width) return;
             if (pixel.y <0 || pixel.y >= this.Height) return;
 
             canvas.SetPixel(pixel.x, pixel.y, pixel.Color);
+        }
+
+        public void SetPixelList(List<Pixel> pixelList)
+        {
+            foreach (var pixel in pixelList)
+            {
+                SetPixel(pixel);
+            }
         }
 
         public void OutputImage()
